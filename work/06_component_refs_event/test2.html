@@ -24,17 +24,20 @@
 
       hintInput = () => {
         // 找到input
-        const input = this.refs.content
-        alert(input.value)
+        alert(this.contentInput.value)
+      }
+
+      hintInput2 = (event) => {
+        alert(event.target.value)
       }
 
       render () {
         console.log(this)
         return (
           <div>
-            <input type="text" ref="content"/>&nbsp;
+            <input type="text" ref={input => this.contentInput = input}/>&nbsp;
             <button onClick={this.hintInput}>提示输入</button>&nbsp;
-            <input type="text" placeholder="失去焦点提示"/>
+            <input type="text" placeholder="失去焦点提示" onBlur={this.hintInput2}/>
           </div>
         )
       }
