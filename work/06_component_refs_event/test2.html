@@ -35,6 +35,7 @@
         console.log(this)
         return (
           <div>
+            /*自动调用ref指定的函数, 并将当前DOM元素对象传入*/
             <input type="text" ref={input => this.contentInput = input}/>&nbsp;
             <button onClick={this.hintInput}>提示输入</button>&nbsp;
             <input type="text" placeholder="失去焦点提示" onBlur={this.hintInput2}/>

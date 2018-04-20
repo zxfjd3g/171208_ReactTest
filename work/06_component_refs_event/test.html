@@ -32,6 +32,7 @@
         console.log(this)
         return (
           <div>
+            /*给组件对象的refs属性对象中添加一个属性: content=当前DOM元素对象*/
             <input type="text" ref="content"/>&nbsp;
             <button onClick={this.hintInput}>提示输入</button>&nbsp;
             <input type="text" placeholder="失去焦点提示"/>
