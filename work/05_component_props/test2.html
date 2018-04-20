@@ -27,6 +27,33 @@
   4). 年龄(number), 性别(string)可以不指定
   */
   class Person extends React.Component {
+    // 给组件类添加属性: 在名称的左边加上static
+
+    // 指定属性的属性值类型和必要性
+    static propTypes = {
+      name: PropTypes.string.isRequired,
+      age: PropTypes.number,
+      sex: PropTypes.string
+    }
+
+    // 指定属性默认值
+    static defaultProps = {
+      sex: '男',
+      age: 18
+    }
+
+    // 给组件对象设置state属性
+    state = {
+      isLikeMe: false
+    }
+
+    /*constructor (props) {
+      super(props)
+      // 初始化状态
+      this.state = {
+        isLikeMe: false
+      }
+    }*/
 
     render () {
       const {name, sex, age} = this.props
@@ -38,17 +65,6 @@
         </ul>
       )
     }
-  }
-  // 指定属性的属性值类型和必要性
-  Person.propTypes = {
-    name: PropTypes.string.isRequired,
-    age: PropTypes.number,
-    sex: PropTypes.string
-  }
-  // 指定属性默认值
-  Person.defaultProps = {
-    sex: '男',
-    age: 18
   }
 
 

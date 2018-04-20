@@ -28,15 +28,20 @@
       this.state = {
         isLikeMe: false
       }
+      // bind()是谁的方法?: 函数对象
+      // 作用: 返回一个新的函数, 它的定义与原函数一样, 它的this为第一个参数  (原来的函数不变)
+      this.handleClick = this.handleClick.bind(this)
     }
 
     // 自定义的函数
-    handleClick = ()=> { // 在组件类中添加的自定义方法的this不是组件对象, 而是undefined
+    handleClick() {
+    // handleClick = ()=> { // 在组件类中添加的自定义方法的this不是组件对象, 而是undefined
       console.log('handleClick()', this)
-      // 更新(切换)状态
+
       // this.state.isLikeMe = !this.state.isLikeMe  // 不能直接修改状态
       // 得到当前最新的状态值
       const isLikeMe = !this.state.isLikeMe
+      // 更新(切换)状态
       this.setState({
         isLikeMe
       })
