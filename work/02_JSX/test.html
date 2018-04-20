@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>02_JSX</title>
+</head>
+<body>
+  <div id="test1"></div>
+  <div id="test2"></div>
+
+  <script type="text/javascript" src="../js/react.development.js"></script>
+  <script type="text/javascript" src="../js/react-dom.development.js"></script>
+  <script type="text/javascript" src="../js/babel.min.js"></script>
+  <script type="text/javascript">
+    // 1. 创建虚拟dom元素对象(使用纯JS语法)
+    const vDom1 = React.createElement('h1', {id: 'myId'}, '不使用JSX')
+    // 2. 渲染虚拟dom
+    ReactDOM.render(vDom1, document.getElementById('test1'))
+  </script>
+
+  <script type="text/babel">
+    // 1. 创建虚拟dom元素对象(使用JSX)
+    let myId = 'abc'
+    let text = '使用了JSX'
+    const vDom2 = <h1 id={myId}>{text}</h1>
+    // 2. 渲染虚拟dom
+    ReactDOM.render(vDom2, document.getElementById('test2'))
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>02_JSX_DEMO</title>
+</head>
+<body>
+  <h2>前端JS框架列表</h2>
+  <div id="example1">
+    <!--<ul>
+      <li>name1</li>
+      <li>name2</li>
+      <li>name3</li>
+    </ul>-->
+  </div>
+
+  <script type="text/javascript" src="../js/react.development.js"></script>
+  <script type="text/javascript" src="../js/react-dom.development.js"></script>
+  <script type="text/javascript" src="../js/babel.min.js"></script>
+
+  <script type="text/babel">
+    /*
+     功能: 动态展示列表数据
+
+      1. 设计数据数组
+      2. 测试出: 要显示一个标签列表, 需要渲染的是一个标签的数组
+      3. 根据数据的数组得到一个标签的数组: arr.map()
+      4. 根据控制台提示: 标签数组中的标签需要有一个唯一的标识: key={index}
+     */
+    const names = ['jQuery', 'zeptoo', 'react', 'vue']
+
+      // [<li>name1</li>, <li>name2</li>, <li>name3</li>]
+    // 1. 创建虚拟DOM
+    const vDOM = (
+      <ul>
+        {
+          // 根据数据的数组得到一个标签的数组
+          names.map((name, index) => { // array.map()返回一个新数组(数组中的元素一一对应)
+            return <li key={index}>{name}</li> // 返回新数组中元素
+          })
+        }
+      </ul>
+    )
+    // 2. 渲染虚拟DOM
+    ReactDOM.render(vDOM, document.getElementById('example1'))
+
+  </script>
+</body>
+</html>
